@@ -32,7 +32,7 @@ type TwitterBot interface {
 }
 
 type TwitterBotImpl struct {
-	twitterService TwitterService
+	TwitterService TwitterService
 }
 
 func (t *TwitterBotImpl) EventLoop() error {
@@ -47,11 +47,11 @@ func (t *TwitterBotImpl) EventLoop() error {
 }
 
 func (t *TwitterBotImpl) Action(count int) ([]int, error) {
-	tl, _ := t.twitterService.GetTimeline(count)
+	tl, _ := t.TwitterService.GetTimeline(count)
 	ret := make([]int, 0)
 	for i := range tl {
 		status := tl[i]
-		statusId, _ := t.twitterService.Tweet("@"+status.UserId+" Good morning!", status.Id)
+		statusId, _ := t.TwitterService.Tweet("@"+status.UserId+" Good morning!", status.Id)
 		ret = append(ret, statusId)
 	}
 	return ret, nil
