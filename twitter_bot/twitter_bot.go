@@ -1,4 +1,4 @@
-package main
+package twitter_bot
 
 import (
 	"fmt"
@@ -55,10 +55,4 @@ func (t *TwitterBotImpl) Action(count int) ([]int, error) {
 		ret = append(ret, statusId)
 	}
 	return ret, nil
-}
-
-func main() {
-	service := &TwitterServiceImpl{}
-	bot := &TwitterBotImpl{service}
-	bot.EventLoop()
 }
