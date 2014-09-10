@@ -1,3 +1,4 @@
+// package name must be "bot_test". not "bot"
 package bot_test
 
 import (
